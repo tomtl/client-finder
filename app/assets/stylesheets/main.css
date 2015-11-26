@@ -1,9 +1,9 @@
-html, body, h1, h2, h3, h4, p, section ul, ol, li{
+html, body, h1, h2, h3, h4, p, section ul, ol, li, form{
   padding: 0;
   border: 0;
   margin: 0;
   font: inherit;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
 }
 
@@ -30,7 +30,7 @@ h3 {
   border-bottom: 1px solid #555555;
   margin: 1.5em 0 0.5em 0;
 }
-p {
+p, form {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
 }
@@ -42,22 +42,20 @@ a {
   text-decoration: none;
 }
 form {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-}
-.form-field {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
-  /*line-height: 2em;*/
   width: 200px;
   margin: 0 auto;
   display: block;
 }
-.form-field:nth-child(even) {
-  float: right;
-}
 .form-field input {
   display: block;
   margin-bottom: 0.5em;
+}
+.submit-button {
+  border-radius: 5px;
+  padding: 0.25em 1em;
+  margin-top: 1em;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+  font-size: 1em;
 }
