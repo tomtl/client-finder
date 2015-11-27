@@ -19,6 +19,10 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
 
+  def edit
+    @client = Client.find(params[:id])
+  end
+
   private
   def client_params
     params.require(:client).permit(

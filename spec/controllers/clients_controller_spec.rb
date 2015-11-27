@@ -54,4 +54,12 @@ describe ClientsController do
       expect(assigns(:client)).to eq(client1)
     end
   end
+
+  describe "GET edit" do
+    it "sets @client" do
+      client1 = Fabricate(:client)
+      get :edit, id: client1.id
+      expect(assigns(:client)).to eq(client1)
+    end
+  end
 end
