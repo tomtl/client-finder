@@ -1,0 +1,20 @@
+%article.col-md-6.col-md-offset-3
+  %h1= "#{@client.first_name} #{@client.last_name}"
+  %h3 Company:
+  %p
+    Position:
+    = @client.title
+  %p
+    Company:
+    = "#{@client.company}"
+
+  %h3 Address:
+  %p
+    = "#{@client.address}, #{@client.city}, #{@client.state} #{@client.zip} " if @client.address
+  %h3 Contact:
+  %p
+    = "Office phone: #{@client.phone_office}"
+  %p
+    = "Mobile phone: #{@client.phone_mobile}"
+  %p
+    = "Email: #{@client.email}"

@@ -45,7 +45,13 @@ describe ClientsController do
         expect(response).to render_template :new
       end
     end
+  end
 
-
+  describe "GET show" do
+    it "sets @client" do
+      client1 = Fabricate(:client)
+      get :show, id: client1.id
+      expect(assigns(:client)).to eq(client1)
+    end
   end
 end
