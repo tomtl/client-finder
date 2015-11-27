@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_action :set_client, only: [:show, :edit, :update]
+
   def new
     @client = Client.new
   end
@@ -16,11 +18,19 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
   end
 
   def edit
-    @client = Client.find(params[:id])
+  end
+
+  def update
+    if @client.update(client_params)
+      flash[:success] = "#{@client.first_name} #{@client.last_name} has been updated successfully."
+      redirect_to client_path(@client)
+    else
+      flash.now[:danger] = "Please correct the following errors."
+      render :edit
+    end
   end
 
   private
@@ -38,5 +48,9 @@ class ClientsController < ApplicationController
       :phone_mobile,
       :email
     )
+  end
+
+  def set_client
+    @client = Client.find(params[:id])
   end
 end

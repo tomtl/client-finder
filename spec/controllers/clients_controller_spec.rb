@@ -62,4 +62,44 @@ describe ClientsController do
       expect(assigns(:client)).to eq(client1)
     end
   end
+
+  describe "PATCH update" do
+    let(:client1) { Fabricate(:client) }
+    let(:client1_new_name) { "UpdatedAndy" }
+
+    before do
+      patch :update, id: client1.id, client: { first_name: client1_new_name}
+    end
+
+    context "for valid inputs" do
+      it "updates the client record" do
+        expect(Client.first.first_name).to eq(client1_new_name)
+      end
+
+      it "sets the success message" do
+        expect(flash[:success]).to be_present
+      end
+
+      it "redirects to the client page" do
+        expect(response).to redirect_to(client_path(client1))
+      end
+    end
+
+    context "for invalid inputs" do
+      let(:client1) { Fabricate(:client) }
+      before { patch :update, id: client1.id, client: { first_name: nil} }
+
+      it "sets the flash error message" do
+        expect(flash[:danger]).to be_present
+      end
+
+      it "sets @client" do
+        expect(assigns(:client)).to eq(client1)
+      end
+
+      it "renders the edit client page" do
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
 end
