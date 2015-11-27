@@ -1,0 +1,33 @@
+%form
+  = bootstrap_form_for @client do |f|
+    %header
+      %h1 Create a Client
+    %fieldset.col-md-6.col-md-offset-3
+      .row
+        .column-left.col-sm-6
+          = f.text_field :first_name
+        .column-right.col-sm-6
+          = f.text_field :last_name
+      .row
+        .column-left.col-sm-6
+          = f.text_field :title
+        .column-right.col-sm-6
+          = f.text_field :company
+      .row.col-sm-12
+        = f.text_field :address, label: "Street"
+      .row
+        .column-left.col-sm-6
+          = f.text_field :city
+        .column-right.col-sm-6
+          = f.text_field :state
+      .row
+        .column-left.col-sm-6
+          = f.text_field :zip
+        .column-right.col-sm-6
+          = f.telephone_field :phone_office, label: "Office phone"
+      .row
+        .column-left.col-sm-6
+          = f.telephone_field :phone_mobile, label: "Mobile phone"
+        .column-right.col-sm-6
+          = f.email_field :email
+      = f.submit "Create Client", class: "btn btn-success"

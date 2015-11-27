@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
 
     if @client.save
       flash[:success] = "#{@client.first_name} #{@client.last_name} has been created successfully."
-      redirect_to client_path(@client.id)
+      redirect_to client_path(@client)
     else
       flash.now[:danger] = "Please fix the following errors."
       render :new

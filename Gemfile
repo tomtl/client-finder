@@ -9,6 +9,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
+gem 'haml-rails'
 
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'geocoder'
