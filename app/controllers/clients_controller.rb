@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :edit, :update]
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def new
     @client = Client.new
@@ -30,6 +30,13 @@ class ClientsController < ApplicationController
     else
       flash.now[:danger] = "Please correct the following errors."
       render :edit
+    end
+  end
+
+  def destroy
+    if @client.delete
+      flash[:success] = "Client has been deleted successfully."
+      redirect_to root_path
     end
   end
 

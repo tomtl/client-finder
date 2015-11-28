@@ -31,3 +31,5 @@
       .column-right.col-sm-12.col-md-6
         = f.email_field :email
     = f.submit (@client.new_record? ? "Create Client" : "Update Client"), class: "btn btn-success"
+    - if !@client.new_record?
+      = button_to "Delete Client", client_path(@client), method: :delete, class: "btn btn-danger"

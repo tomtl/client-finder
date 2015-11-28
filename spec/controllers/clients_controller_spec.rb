@@ -102,4 +102,21 @@ describe ClientsController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    let(:client1) { Fabricate(:client) }
+    before { delete :destroy, id: client1.id }
+
+    it "deletes the client record" do
+      expect(Client.count).to eq(0)
+    end
+
+    it "sets the success message" do
+      expect(flash[:success]).to be_present
+    end
+
+    it "redirects to the home path" do
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end
