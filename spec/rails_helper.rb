@@ -55,3 +55,47 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+
+    # Choose one or more libraries:
+    with.library :active_record
+    with.library :active_model
+    with.library :action_controller
+    # Or, choose the following (which implies all of the above):
+    with.library :rails
+  end
+end
+
+Geocoder.configure(lookup: :test)
+
+Geocoder::Lookup::Test.add_stub(
+  "1 City Hall Square, Boston, MA, 02201", [
+    {
+      "latitude"     => 42.3588508197085,
+      "longitude"    => -71.05929998029151,
+      "address"      => "1 City Hall Square, Boston, MA 02201, USA",
+      "state"        => "Boston",
+      "state_code"   => "MA",
+      "country"      => "United States",
+      "country_code" => "US"
+    }
+  ]
+)
+
+Geocoder::Lookup::Test.set_default_stub(
+  [
+    {
+      "latitude"     => 40.7143528,
+      "longitude"    => -74.0059731,
+      "address"      => "New York, NY, USA",
+      "state"        => "New York",
+      "state_code"   => "NY",
+      "country"      => "United States",
+      "country_code" => "US"
+    }
+  ]
+)
