@@ -18,3 +18,7 @@
     = "Mobile phone: #{@client.phone_mobile}"
   %p
     = "Email: #{@client.email}"
+  %h3
+    Location Map
+  .map
+    = image_tag single_location_map_link(@client.full_address)
