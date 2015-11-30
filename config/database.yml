@@ -12,11 +12,11 @@ production:
 development:
   <<: *default
   database: clientfinder_development
-  username: tomlee
+  username: ubuntu
   password:
 
 test:
   <<: *default
   database: clientfinder_test
-  username: tomlee
+  username: ubuntu
   password:
