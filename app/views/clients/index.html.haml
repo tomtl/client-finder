@@ -1,0 +1,9 @@
+%h1 Clients
+
+- @clients.each do |client|
+  %p
+    %ul
+      %li
+        = link_to client.full_name, client_path(client)
+      %li= "#{client.title} #{client.company}"
+      %li= client.full_address

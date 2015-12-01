@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'haml-rails'
 gem 'geocoder'
+gem 'will_paginate'
 
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'geocoder'

@@ -55,6 +55,15 @@ describe ClientsController do
     end
   end
 
+  describe "GET index" do
+    it "sets @clients" do
+      client1 = Fabricate(:client)
+      client2 = Fabricate(:client)
+      get :index
+      expect(assigns(:clients)).to include(client1, client2)
+    end
+  end
+
   describe "GET edit" do
     it "sets @client" do
       client1 = Fabricate(:client)

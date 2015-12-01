@@ -13,4 +13,8 @@ class Client < ActiveRecord::Base
   def full_address
     [address, city, state, zip].compact.join(", ")
   end
+
+  def full_name
+    [first_name, last_name].compact.join(" ")
+  end
 end

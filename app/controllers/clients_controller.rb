@@ -20,6 +20,10 @@ class ClientsController < ApplicationController
   def show
   end
 
+  def index
+    @clients = Client.all.order(:last_name).paginate(page: params[:page])
+  end
+
   def edit
   end
 
