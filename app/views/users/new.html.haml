@@ -1,0 +1,11 @@
+%h1 Register
+
+= bootstrap_form_for(@user) do |f|
+  %fieldset.col-md-6.col-md-offset-3
+    .row
+      = f.text_field :full_name
+    .row
+      = f.text_field :email
+    .row
+      = f.password_field :password
+    = f.submit "Register", class: "btn btn-success"

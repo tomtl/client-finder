@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root "pages#front"
-  
+
   resources :clients
+
+  resources :users, except: [:index, :destroy]
+  get "register", to: "users#new"
 
 end
 
